@@ -31,7 +31,7 @@ puts "5 skills created"
 
 9.times do |portfolio_item|
 	Porfolio.create!(
-		title: "Porfolio title: #{portfolio_item}",
+		title: "Portfolio title: #{portfolio_item}",
 		subtitle: "Service",
 		body: "Lorem Ipsum is simply dummy text of the printing and typesetting 
 		industry. Lorem Ipsum has been the industry's standard dummy text ever 
