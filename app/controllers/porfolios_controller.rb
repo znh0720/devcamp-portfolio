@@ -8,7 +8,7 @@ class PorfoliosController < ApplicationController
 	end
 
 	def create
-	    @portfolio_item = Porfolio.new(params.require(:porfolio).permit(:title, :subtitle, :body))
+	    @portfolio_item = Porfolio.new(portfolio_params)
 
 	    respond_to do |format|
 	      if @portfolio_item.save
@@ -28,7 +28,7 @@ class PorfoliosController < ApplicationController
   def update
   	@portfolio_item = Porfolio.find(params[:id])
     respond_to do |format|
-      if @portfolio_item.update(params.require(:porfolio).permit(:title, :subtitle, :body))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to porfolios_path, notice: "Blog was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,6 +52,12 @@ class PorfoliosController < ApplicationController
       format.html { redirect_to porfolios_url, notice: "Record was removed." }
       format.json { head :no_content }
     end
+  end
+
+  private 
+
+  def portfolio_params
+    params.require(:porfolio).permit(:title, :subtitle, :body)
   end
 
 end
