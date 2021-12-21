@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :porfolios, excpet: [:show]
-  get 'porfolio/id', to: 'porfolio#show', as: 'porfolio_show'
+  get 'porfolio/:id', to: 'porfolios#show', as: 'porfolio_show'
 
   get 'about-me', to: 'pages#about'
   get 'contact', to: 'pages#contact'
